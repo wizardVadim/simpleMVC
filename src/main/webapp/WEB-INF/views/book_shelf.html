@@ -50,7 +50,9 @@
             </table>
         </form>
 
-        <form method="post" th:action="@{/books/remove}">
+        <br>
+
+        <form method="post" th:action="@{/books/removeById}">
             <table>
                 <tr>
                     <td>
@@ -62,6 +64,23 @@
                 </tr>
             </table>
         </form>
+
+        <br>
+
+        <form method="post" th:action="@{/books/removeByRegex}">
+            <table>
+                <tr>
+                    <td>
+                        <input type="text" placeholder="Regex" th:name="regexToRemove">
+                    </td>
+                    <td>
+                        <input type="submit" value="Remove">
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+        <br>
 
         <table id="books">
             <tr>

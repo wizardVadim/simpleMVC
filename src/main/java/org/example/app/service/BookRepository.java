@@ -45,14 +45,35 @@ public class BookRepository implements ProjectRepository<Book> {
     }
 
     @Override
-    public boolean removeItemById(Integer itemIdToRemove) {
+    public void removeItemById(Integer itemIdToRemove) {
+        boolean bookIsContained = false;
         for(Book book : retreiveAll()) {
             if (book.getId().equals(itemIdToRemove)) {
                 logger.info("Remove book: " + book.getId() + ", " + book.getTitle());
-                return repo.remove(book);
+                repo.remove(book);
+                bookIsContained = true;
             }
         }
-        logger.info("Remove book is not completed ");
-        return false;
+        if (!bookIsContained) {
+            logger.info("Remove books is not completed ");
+        }
+    }
+
+    @Override
+    public void removeItemByRegex(String regexToRemove) {
+        boolean bookIsContained = false;
+        for (Book book : retreiveAll()) {
+            if (book.getAuthor().equals(regexToRemove)
+                    || book.getTitle().equals(regexToRemove)
+                    || (book.getSize() != null && book.getSize().equals(Integer.valueOf(regexToRemove)))
+            ) {
+                logger.info("Remove book: " + book.getId() + ", " + book.getTitle());
+                repo.remove(book);
+                bookIsContained = true;
+            }
+        }
+        if (!bookIsContained) {
+            logger.info("Remove books is not completed ");
+        }
     }
 }

@@ -20,14 +20,22 @@ public class BookService {
     }
 
     public void saveBook(Book book) {
-        bookRepo.store(book);
+        if (!(book.getAuthor().equals("") &&
+                book.getTitle().equals("") &&
+                book.getSize() == null)) {
+            bookRepo.store(book);
+        }
     }
 
     public void removeBook(Book book) {
         bookRepo.remove(book);
     }
 
-    public boolean removeBookById(Integer bookIdToRemove) {
-        return bookRepo.removeItemById(bookIdToRemove);
+    public void removeBookById(Integer bookIdToRemove) {
+        bookRepo.removeItemById(bookIdToRemove);
+    }
+
+    public void removeBookByRegex(String regexToRemove) {
+        bookRepo.removeItemByRegex(regexToRemove);
     }
 }

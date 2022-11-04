@@ -11,5 +11,7 @@ public interface ProjectRepository<T> {
 
     void remove(Book book);
 
-    boolean removeItemById(Integer itemIdToRemove);
+    void removeItemById(Integer itemIdToRemove);
+
+    void removeItemByRegex(String regexToRemove);
 }
