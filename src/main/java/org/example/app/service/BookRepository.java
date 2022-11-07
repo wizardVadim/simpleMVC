@@ -2,17 +2,21 @@ package org.example.app.service;
 
 import org.apache.log4j.Logger;
 import org.example.web.dto.Book;
+import org.springframework.beans.BeansException;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class BookRepository implements ProjectRepository<Book> {
+public class BookRepository implements ProjectRepository<Book>, ApplicationContextAware {
 
 
     private final Logger logger = Logger.getLogger(BookRepository.class);
     private final List<Book> repo = new ArrayList<>();
+    private ApplicationContext context;
 
     @Override
     public List<Book> retreiveAll() {
@@ -21,7 +25,7 @@ public class BookRepository implements ProjectRepository<Book> {
 
     @Override
     public void store(Book book) {
-        book.setId(book.hashCode());
+        book.setId(context.getBean(IdProvider.class).provideId(book));
         logger.info("Store new book");
         repo.add(book);
     }
@@ -45,7 +49,7 @@ public class BookRepository implements ProjectRepository<Book> {
     }
 
     @Override
-    public void removeItemById(Integer itemIdToRemove) {
+    public void removeItemById(String itemIdToRemove) {
         boolean bookIsContained = false;
         for(Book book : retreiveAll()) {
             if (book.getId().equals(itemIdToRemove)) {
@@ -75,5 +79,18 @@ public class BookRepository implements ProjectRepository<Book> {
         if (!bookIsContained) {
             logger.info("Remove books is not completed ");
         }
+    }
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        this.context = applicationContext;
+    }
+
+    private void defaultInit() {
+        logger.info("default INIT in repo bean");
+    }
+
+    private  void defaultDestroy() {
+        logger.info("default DESTROY in repo bean");
     }
 }

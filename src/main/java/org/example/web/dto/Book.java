@@ -1,16 +1,28 @@
 package org.example.web.dto;
 
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 public class Book {
-    private Integer id;
+    private String id;
+
+    @NotEmpty(message = "it should be not empty")
+    @Size(min = 2, max = 20, message = "Size is not right, MIN = 2, MAX = 20")
     private String author;
+
+    @NotEmpty(message = "it should be not empty")
+    @Size(min = 2, max = 15, message = "Size is not right, MIN = 2, MAX = 15")
     private String title;
+
+    @Digits(integer = 4, fraction = 0)
     private Integer size;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
