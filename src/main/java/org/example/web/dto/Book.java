@@ -5,7 +5,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 public class Book {
-    private String id;
+    private Integer id;
 
     @NotEmpty(message = "it should be not empty")
     @Size(min = 2, max = 20, message = "Size is not right, MIN = 2, MAX = 20")
@@ -18,11 +18,11 @@ public class Book {
     @Digits(integer = 4, fraction = 0)
     private Integer size;
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

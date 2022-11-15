@@ -30,7 +30,7 @@ public class BookService {
         bookRepo.remove(book);
     }
 
-    public void removeBookById(String bookIdToRemove) {
+    public void removeBookById(Integer bookIdToRemove) {
         bookRepo.removeItemById(bookIdToRemove);
     }
 

@@ -9,30 +9,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74893422-50b5-4b8e-83d0-9bcaea69b3fa" name="Changes" comment="v1.1-book-shelf-starter">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/WebAppInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/app/config/AppContextConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/app/config/AppSecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/app/config/SecurityInit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/app/exceptions/BookShelfLoginException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/app/service/IdProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/web/config/WebContextConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/web/controllers/ErrorController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/web/dto/BookIdToRemove.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/web/dto/BookRegexToRemove.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/errors/404.html" afterDir="false" />
+    <list default="true" id="74893422-50b5-4b8e-83d0-9bcaea69b3fa" name="Changes" comment="v1.2-book-shelf-starter (security and validation)">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/web/config/DBConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/WebAppInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/WebAppInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/app/config/AppSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/app/config/AppSecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/app/service/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/app/service/BookRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/app/service/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/app/service/BookService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/app/service/ProjectRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/app/service/ProjectRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/web/controllers/BookShelfController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/web/controllers/BookShelfController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/web/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/web/controllers/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/web/dto/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/web/dto/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/app-config.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/web-config.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/book_shelf.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/book_shelf.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/web/dto/BookIdToRemove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/web/dto/BookIdToRemove.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,13 +65,15 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Copy/simpleMVC&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15429688&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;16d6bb4721ce5deb76dc094b9da7c368&quot;
   }
 }</component>
@@ -102,7 +94,7 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="first_mvc_app" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.68" ALTERNATIVE_JRE_ENABLED="false">
+    <configuration name="first_mvc_app" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="18">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8089/simpleMVC_war_exploded/login" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
@@ -191,6 +183,27 @@
         </option>
       </method>
     </configuration>
+    <configuration default="true" type="com.poratu.idea.plugins.tomcat">
+      <predefined_log_file enabled="true" id="Tomcat Localhost Log" />
+      <predefined_log_file enabled="true" id="Tomcat Access Log" />
+      <predefined_log_file id="Tomcat Catalina Log" />
+      <predefined_log_file id="Tomcat Manager Log" />
+      <predefined_log_file id="Tomcat Host Manager Log" />
+      <option name="contextPath" value="/simpleMVC" />
+      <option name="docBase" value="$PROJECT_DIR$/src/main/webapp" />
+      <option name="port" value="8089" />
+      <option name="tomcatInfo">
+        <TomcatInfo>
+          <option name="name" value="Apache Tomcat/9.0.68" />
+          <option name="path" value="D:\Copy\simpleMVC\apache-tomcat-9.0.68" />
+          <option name="version" value="9.0.68.0" />
+        </TomcatInfo>
+      </option>
+      <option name="vmOptions" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -204,7 +217,18 @@
       <workItem from="1667562335341" duration="12970000" />
       <workItem from="1667577303883" duration="2843000" />
       <workItem from="1667731468880" duration="5641000" />
-      <workItem from="1667818738248" duration="8353000" />
+      <workItem from="1667818738248" duration="8687000" />
+      <workItem from="1667911063872" duration="2792000" />
+      <workItem from="1667913909695" duration="705000" />
+      <workItem from="1667914636196" duration="38000" />
+      <workItem from="1667914691262" duration="143000" />
+      <workItem from="1667914851763" duration="49000" />
+      <workItem from="1667914944657" duration="198000" />
+      <workItem from="1668508652253" duration="206000" />
+      <workItem from="1668509256354" duration="347000" />
+      <workItem from="1668509656209" duration="292000" />
+      <workItem from="1668510455843" duration="595000" />
+      <workItem from="1668511346536" duration="816000" />
     </task>
     <task id="LOCAL-00001" summary="v1.0-book-shelf-starter">
       <created>1667575072541</created>
@@ -220,7 +244,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667579988853</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="v1.2-book-shelf-starter (security and validation)">
+      <created>1667829645290</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1667829645290</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -240,30 +271,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="v1.0-book-shelf-starter" />
     <MESSAGE value="v1.1-book-shelf-starter" />
-    <option name="LAST_COMMIT_MESSAGE" value="v1.1-book-shelf-starter" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/app/service/BookRepository.java</url>
-          <line>51</line>
-          <properties class="org.example.app.service.BookRepository" method="removeItemById">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/app/service/BookRepository.java</url>
-          <line>66</line>
-          <properties class="org.example.app.service.BookRepository" method="removeItemByRegex">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="v1.2-book-shelf-starter (security and validation)" />
+    <option name="LAST_COMMIT_MESSAGE" value="v1.2-book-shelf-starter (security and validation)" />
   </component>
 </project>
