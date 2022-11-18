@@ -6,6 +6,7 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -44,60 +45,32 @@ public class BookRepository implements ProjectRepository<Book>, ApplicationConte
 
     @Override
     public void store(Book book) {
-//        book.setId(context.getBean(IdProvider.class).provideId(book));
-        logger.info("Store new book");
-//        repo.add(book);
-    }
-
-    @Override
-    public void remove(final Book book) {
-        boolean bookIsContained = false;
-
-//        for (Book bookFromRepo : repo) {
-//            if (bookFromRepo.getId().equals(book.getId())) {
-//                repo.remove(bookFromRepo);
-//                bookIsContained = true;
-//                break;
-//            }
-//        }
-        if (bookIsContained) {
-            logger.info("Book by ID: " + book.getId() + " is deleted");
-        } else {
-            logger.info("Book by ID: " + book.getId() + " is not contained");
-        }
+        MapSqlParameterSource parameterSource = new MapSqlParameterSource();
+        parameterSource.addValue("author", book.getAuthor());
+        parameterSource.addValue("title", book.getTitle());
+        parameterSource.addValue("size", book.getSize());
+        jdbcTemplate.update("INSERT INTO books(author, title, size) " +
+                "VALUES(:author, :title, :size)", parameterSource);
+        logger.info("Store new book " + book);
     }
 
     @Override
     public void removeItemById(Integer itemIdToRemove) {
-        boolean bookIsContained = false;
-        for(Book book : retreiveAll()) {
-            if (book.getId().equals(itemIdToRemove)) {
-                logger.info("Remove book: " + book.getId() + ", " + book.getTitle());
-//                repo.remove(book);
-                bookIsContained = true;
-            }
-        }
-        if (!bookIsContained) {
-            logger.info("Remove books is not completed ");
-        }
+        MapSqlParameterSource parameterSource = new MapSqlParameterSource();
+        parameterSource.addValue("id", itemIdToRemove);
+        jdbcTemplate.update("DELETE FROM books WHERE id = :id", parameterSource);
+        logger.info("Remove book completed");
     }
 
     @Override
     public void removeItemByRegex(String regexToRemove) {
-        boolean bookIsContained = false;
-        for (Book book : retreiveAll()) {
-            if (book.getAuthor().equals(regexToRemove)
-                    || book.getTitle().equals(regexToRemove)
-                    || (book.getSize() != null && book.getSize().equals(Integer.valueOf(regexToRemove)))
-            ) {
-                logger.info("Remove book: " + book.getId() + ", " + book.getTitle());
-//                repo.remove(book);
-                bookIsContained = true;
-            }
-        }
-        if (!bookIsContained) {
-            logger.info("Remove books is not completed ");
-        }
+        MapSqlParameterSource parameterSource = new MapSqlParameterSource();
+        parameterSource.addValue("author", regexToRemove);
+        parameterSource.addValue("title", regexToRemove);
+//        parameterSource.addValue("size", regexToRemove);
+        jdbcTemplate.update("DELETE FROM books WHERE author = :author OR " +
+                "title = :title", parameterSource);
+        logger.info("Remove books completed ");
     }
 
     @Override

@@ -9,8 +9,6 @@ public interface ProjectRepository<T> {
 
     void store(Book book);
 
-    void remove(Book book);
-
     void removeItemById(Integer itemIdToRemove);
 
     void removeItemByRegex(String regexToRemove);

@@ -9,20 +9,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74893422-50b5-4b8e-83d0-9bcaea69b3fa" name="Changes" comment="v1.2-book-shelf-starter (security and validation)">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/web/config/DBConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/schema.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="74893422-50b5-4b8e-83d0-9bcaea69b3fa" name="Changes" comment="v1.2.1-book-shelf-starter (bug)">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/web/dto/MultipartFileValid.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/WebAppInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/WebAppInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/app/config/AppSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/app/config/AppSecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/app/service/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/app/service/BookRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/app/service/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/app/service/BookService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/app/service/ProjectRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/app/service/ProjectRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/web/dto/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/web/dto/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/web/dto/BookIdToRemove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/web/dto/BookIdToRemove.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/web/config/DBConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/app/config/DBConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/web/config/WebContextConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/web/config/WebContextConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/web/controllers/BookShelfController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/web/controllers/BookShelfController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/book_shelf.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/book_shelf.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +92,7 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="first_mvc_app" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="18">
+    <configuration name="first_mvc_app" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="18">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8089/simpleMVC_war_exploded/login" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
@@ -228,7 +226,8 @@
       <workItem from="1668509256354" duration="347000" />
       <workItem from="1668509656209" duration="292000" />
       <workItem from="1668510455843" duration="595000" />
-      <workItem from="1668511346536" duration="816000" />
+      <workItem from="1668511346536" duration="2745000" />
+      <workItem from="1668745399621" duration="5326000" />
     </task>
     <task id="LOCAL-00001" summary="v1.0-book-shelf-starter">
       <created>1667575072541</created>
@@ -251,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667829645290</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="v1.2.1-book-shelf-starter (bug)">
+      <created>1668512206123</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1668512206123</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -272,6 +278,8 @@
     <MESSAGE value="v1.0-book-shelf-starter" />
     <MESSAGE value="v1.1-book-shelf-starter" />
     <MESSAGE value="v1.2-book-shelf-starter (security and validation)" />
-    <option name="LAST_COMMIT_MESSAGE" value="v1.2-book-shelf-starter (security and validation)" />
+    <MESSAGE value="v1.3-book-shelf-starter (bug)" />
+    <MESSAGE value="v1.2.1-book-shelf-starter (bug)" />
+    <option name="LAST_COMMIT_MESSAGE" value="v1.2.1-book-shelf-starter (bug)" />
   </component>
 </project>
