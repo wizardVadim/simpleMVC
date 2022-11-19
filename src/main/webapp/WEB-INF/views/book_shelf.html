@@ -91,24 +91,6 @@
 
         <br>
 
-        <form method="post" th:action="@{/books/uploadFile}" th:object="${multipartFileValid}">
-            <table>
-                <tr>
-                    <td>
-                        <input th:type="file" th:field="*{file}"/>
-                    </td>
-                    <td>
-                        <input th:type="submit" th:value="Upload">
-                    </td>
-                    <td th:if="${#fields.hasErrors()}">
-                        <p>File is null</p>
-                    </td>
-                </tr>
-            </table>
-        </form>
-
-        <br>
-
         <table id="books">
             <tr>
                 <th>ID</th>
@@ -123,6 +105,25 @@
                 <td th:text="${book.size}"></td>
             </tr>
         </table>
+
+        <br>
+
+        <form method="post" th:action="@{/books/uploadFile}" enctype="multipart/form-data">
+            <table>
+                <tr>
+                    <td>
+                        <input th:type="file" name="file"/>
+                    </td>
+                    <td>
+                        <input th:type="submit" th:value="Upload">
+                    </td>
+                    <td th:if="${#fields.hasErrors()}">
+                        <p>File is null</p>
+                    </td>
+                </tr>
+            </table>
+        </form>
+
     </div>
 </body>
 </html>

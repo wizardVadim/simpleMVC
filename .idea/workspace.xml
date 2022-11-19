@@ -9,7 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74893422-50b5-4b8e-83d0-9bcaea69b3fa" name="Changes" comment="v1.2.2-book-shelf-starter (DataBase is added. It is a problem with file validation.)">
+    <list default="true" id="74893422-50b5-4b8e-83d0-9bcaea69b3fa" name="Changes" comment="v1.2.2.1-book-shelf-starter (DataBase is added. It is a problem with file validation.)">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/app/exceptions/BookShelfUploadException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/errors/500.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/app/service/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/app/service/BookRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/web/controllers/BookShelfController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/web/controllers/BookShelfController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/web/controllers/ErrorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/web/controllers/ErrorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/web/dto/MultipartFileValid.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/book_shelf.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/book_shelf.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,8 +29,8 @@
       <list>
         <option value="Interface" />
         <option value="spring-beans.schema" />
-        <option value="HTML File" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -217,7 +224,8 @@
       <workItem from="1668509656209" duration="292000" />
       <workItem from="1668510455843" duration="595000" />
       <workItem from="1668511346536" duration="2745000" />
-      <workItem from="1668745399621" duration="5728000" />
+      <workItem from="1668745399621" duration="6104000" />
+      <workItem from="1668836296446" duration="1774000" />
     </task>
     <task id="LOCAL-00001" summary="v1.0-book-shelf-starter">
       <created>1667575072541</created>
@@ -254,7 +262,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668751842525</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="v1.2.2.1-book-shelf-starter (DataBase is added. It is a problem with file validation.)">
+      <created>1668751926930</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1668751926930</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -278,6 +293,7 @@
     <MESSAGE value="v1.3-book-shelf-starter (bug)" />
     <MESSAGE value="v1.2.1-book-shelf-starter (bug)" />
     <MESSAGE value="v1.2.2-book-shelf-starter (DataBase is added. It is a problem with file validation.)" />
-    <option name="LAST_COMMIT_MESSAGE" value="v1.2.2-book-shelf-starter (DataBase is added. It is a problem with file validation.)" />
+    <MESSAGE value="v1.2.2.1-book-shelf-starter (DataBase is added. It is a problem with file validation.)" />
+    <option name="LAST_COMMIT_MESSAGE" value="v1.2.2.1-book-shelf-starter (DataBase is added. It is a problem with file validation.)" />
   </component>
 </project>

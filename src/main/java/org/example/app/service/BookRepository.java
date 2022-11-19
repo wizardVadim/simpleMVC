@@ -67,7 +67,14 @@ public class BookRepository implements ProjectRepository<Book>, ApplicationConte
         MapSqlParameterSource parameterSource = new MapSqlParameterSource();
         parameterSource.addValue("author", regexToRemove);
         parameterSource.addValue("title", regexToRemove);
-//        parameterSource.addValue("size", regexToRemove);
+
+        //check regex to int
+        String regex = "[0-9]+";
+        if (regexToRemove.matches(regex)) {
+            parameterSource.addValue("size", regexToRemove);
+            jdbcTemplate.update("DELETE FROM books WHERE size = :size", parameterSource);
+        }
+
         jdbcTemplate.update("DELETE FROM books WHERE author = :author OR " +
                 "title = :title", parameterSource);
         logger.info("Remove books completed ");

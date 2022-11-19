@@ -1,12 +1,14 @@
 package org.example.web.controllers;
 
 
+import org.apache.commons.fileupload.FileUploadException;
 import org.apache.log4j.Logger;
+import org.example.app.exceptions.BookShelfLoginException;
+import org.example.app.exceptions.BookShelfUploadException;
 import org.example.app.service.BookService;
 import org.example.web.dto.Book;
 import org.example.web.dto.BookIdToRemove;
 import org.example.web.dto.BookRegexToRemove;
-import org.example.web.dto.MultipartFileValid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -14,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 
 import javax.validation.Valid;
@@ -39,7 +42,6 @@ public class BookShelfController {
         model.addAttribute("bookIdToRemove", new BookIdToRemove());
         model.addAttribute("bookRegexToRemove", new BookRegexToRemove());
         model.addAttribute("bookList", bookService.getAllBooks());
-        model.addAttribute("mFile", new MultipartFileValid());
         return "book_shelf";
     }
 
@@ -50,7 +52,6 @@ public class BookShelfController {
             model.addAttribute("bookIdToRemove", new BookIdToRemove());
             model.addAttribute("bookRegexToRemove", new BookRegexToRemove());
             model.addAttribute("bookList", bookService.getAllBooks());
-            model.addAttribute("mFile", new MultipartFileValid());
             return "book_shelf";
         } else {
             bookService.saveBook(book);
@@ -66,7 +67,6 @@ public class BookShelfController {
             model.addAttribute("book", new Book());
             model.addAttribute("bookList", bookService.getAllBooks());
             model.addAttribute("bookRegexToRemove", new BookRegexToRemove());
-            model.addAttribute("mFile", new MultipartFileValid());
             return "book_shelf";
         } else {
             bookService.removeBookById(bookIdToRemove.getId());
@@ -81,7 +81,6 @@ public class BookShelfController {
             model.addAttribute("book", new Book());
             model.addAttribute("bookList", bookService.getAllBooks());
             model.addAttribute("bookIdToRemove", new BookIdToRemove());
-            model.addAttribute("mFile", new MultipartFileValid());
             return "book_shelf";
         } else {
             bookService.removeBookByRegex(bookRegexToRemove.getRegex());
@@ -90,17 +89,15 @@ public class BookShelfController {
     }
 
     @PostMapping("/uploadFile")
-    public String uploadFile(@Valid MultipartFileValid multipartFileValid, BindingResult bindingResult, Model model) throws  Exception {
-        if (bindingResult.hasErrors()){
-            model.addAttribute("book", new Book());
-            model.addAttribute("bookIdToRemove", new BookIdToRemove());
-            model.addAttribute("bookRegexToRemove", new BookRegexToRemove());
-            model.addAttribute("bookList", bookService.getAllBooks());
-            return "book_shelf";
-        }
+    public String uploadFile(@RequestParam("file")MultipartFile multipartFile) throws  Exception {
 
-        String name = multipartFileValid.getFile().getOriginalFilename();
-        byte[] bytes = multipartFileValid.getFile().getBytes();
+        String name = multipartFile.getOriginalFilename();
+        byte[] bytes = multipartFile.getBytes();
+
+        //validation
+        if (bytes.length == 0) {
+            throw new BookShelfUploadException("File not chosen!");
+        }
 
         //create dir
         String rootPath = System.getProperty("catalina.home");
@@ -118,5 +115,11 @@ public class BookShelfController {
         logger.info("new file saved at: " + serverFile.getAbsolutePath());
 
         return "redirect:/books/shelf";
+    }
+
+    @ExceptionHandler(BookShelfUploadException.class)
+    public String handlerError(Model model, BookShelfUploadException exception) {
+        model.addAttribute("errorMessage", exception.getMessage());
+        return "errors/500";
     }
 }

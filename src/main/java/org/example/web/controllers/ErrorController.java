@@ -14,4 +14,9 @@ public class ErrorController {
         return "errors/404";
     }
 
+    @GetMapping("/500")
+    public String notValidError() {
+        return "errors/500";
+    }
+
 }
